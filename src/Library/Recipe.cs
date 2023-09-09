@@ -11,7 +11,7 @@ namespace Full_GRASP_And_SOLID.Library
 {
     public class Recipe //Service Provider
     {
-        private ArrayList steps = new ArrayList();
+        public ArrayList steps = new ArrayList();
 
         public Product FinalProduct { get; set; }
 
@@ -25,11 +25,14 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
-        public ArrayList GetSteps() 
+        public void PrintRecipe()
         {
-            /* Returns a copy of the list of steps
-            this is how the encapsulation is maintained*/
-            return new ArrayList(this.steps);
-        } 
+            Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
+            foreach (Step step in this.steps)
+            {
+                Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
+                    $"usando '{step.Equipment.Description}' durante {step.Time}");
+            }
+        }
     }
 }

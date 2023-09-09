@@ -6,7 +6,7 @@
 
 namespace Full_GRASP_And_SOLID.Library
 {
-    public class Product
+    public class Product //Information Holder
     {
         public Product(string description, double unitCost)
         {
